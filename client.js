@@ -50,8 +50,7 @@ module.exports = {
         // create the client
         _client = new elasticsearch.Client({
             host: [ host ],
-            connectionClass: connector,
-            log: 'trace'      
+            connectionClass: connector   
         });
     },
 
