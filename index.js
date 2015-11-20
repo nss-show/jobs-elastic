@@ -4,17 +4,26 @@
  *	Export public functionalty.
  */
 
-var elastic = {};
+var elastic = {
 
-elastic.client = require('./client').client();
+	// the client used to connect to elasticsearh
+	client: require('./client'),
 
-elastic.searches = {
-	vacancies: {
-		base: require('./searches/vacancies/base'),
-		live: require('./searches/vacancies/live')
+	// pre-defined search instances
+	searches: {
+		vacancies: {
+			base: require('./searches/vacancies/base'),
+			live: require('./searches/vacancies/live')			
+		},
+		organisations: {
+			base: require('./searches/organisations/base')
+		}
 	},
-	organisations: {
-		base: require('./searches/organisations/base')
+
+	// services used to query elasticsearch
+	services: {
+		vacancies: require('./services/vacancyService'),
+		organisations: require('./services/organisationService')		
 	}
 };
 
