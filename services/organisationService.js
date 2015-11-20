@@ -75,8 +75,8 @@ OrganisationService.prototype.search = function(options, next){
     }else{
       // execute the search
       self.client.search({
-        index         : this.index,
-        type          : this.type,
+        index         : self.index,
+        type          : self.type,
         _sourceInclude: options.field,
         _sourceExclude: contactFields,
         body          : q,
@@ -100,8 +100,8 @@ OrganisationService.prototype.getById = function(id, next){
   var self = this;
 
   self.client.get({
-    index         : this.index,
-    type          : this.type,
+    index         : self.index,
+    type          : self.type,
     id            : id,
     _sourceExclude: contactFields,    
     ignore        : 404 // if not found do not throw an error
