@@ -13,9 +13,9 @@ var _client;
 module.exports = {
 
     /**
-     *  Create client
+     *  Create client and connect
      */
-    create: function(options){
+    connect: function(options){
         var host = {};
         options = options || {};
 

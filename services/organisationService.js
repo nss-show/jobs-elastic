@@ -6,7 +6,7 @@ var searches = {
   base: require('../searches/organisations/base')    
 };
 
-var client = require('../client').get();
+var client = require('../client');
 
 /*
   Organisations returned by this service may not have live vacancies.  
@@ -25,6 +25,7 @@ var contactFields = [
 var OrganisationService = function(index, type){
   this.index = index;
   this.type = type;    
+  this.client = client.get();
 }
 
 /**
@@ -69,7 +70,7 @@ OrganisationService.prototype.search = function(options, next){
       next(err);
     }else{
       // execute the search
-      client.search({
+      self.client.search({
         index         : this.index,
         type          : this.type,
         _sourceInclude: options.field,
@@ -94,7 +95,7 @@ OrganisationService.prototype.search = function(options, next){
 OrganisationService.prototype.getById = function(id, next){
   var self = this;
 
-  client.get({
+  self.client.get({
     index         : this.index,
     type          : this.type,
     id            : id,

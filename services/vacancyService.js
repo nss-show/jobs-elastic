@@ -6,7 +6,7 @@ var searches = {
     live: require('../searches/vacancies/live')
 };
 
-var client = require('../client').get();
+var client = require('../client');
 
 /**
  *  Constructor
@@ -14,6 +14,7 @@ var client = require('../client').get();
 var VacancyService = function(index, type){
     this.index = index;
     this.type = type;
+    this.client = client.get();
 }
 
 /**
@@ -45,7 +46,7 @@ VacancyService.prototype.search = function(options, next){
             next(err);
         }else{
             // execute the search
-            client.search({
+            self.client.search({
                 index   : self.index,
                 type    : self.type,
                 _source : options.field,
@@ -69,7 +70,7 @@ VacancyService.prototype.search = function(options, next){
 VacancyService.prototype.getById = function(id, next){
     var self = this;
 
-    client.get({
+    self.client.get({
         index   : self.index,
         type    : self.type,
         id      : id, 
