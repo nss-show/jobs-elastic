@@ -26,6 +26,10 @@ var OrganisationService = function(index, type){
   this.index = index;
   this.type = type;    
   this.client = client.get();
+
+  if(!this.client){
+      throw new Error('Client does not exist. Call "connect" to create client.');
+  }  
 }
 
 /**
