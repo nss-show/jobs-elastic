@@ -61,7 +61,7 @@ var live = require('../../searches/vacancies/live');
  				if(err){ done(err); }
  				else{			
 	 				assert.equal(q.query.filtered.query.bool.must.length, 1, 'incorrect length of array');				
-	 				assert.equal(q.query.filtered.query.bool.must[0].wildcard.vacRef, ref + '*', 'wildcard incorrect');
+	 				assert.equal(q.query.filtered.query.bool.must[0].wildcard.vacRef, ref + '*1', 'wildcard incorrect');
 	 				done(); 					
  				}		
 
