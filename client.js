@@ -55,9 +55,9 @@ module.exports = {
     },
 
     /**
-     *  Get the client
+     *  Retrieve the client
      */
-	get: function(){
+	acquire: function(){
 		return _client;
 	}
 }

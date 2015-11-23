@@ -1,12 +1,8 @@
 /**
  *	Service for vacancies
  */
-var searches = {
-    base: require('../searches/vacancies/base'),
-    live: require('../searches/vacancies/live')
-};
-
 var client = require('../client');
+var searches = require('../searches');
 
 /**
  *  Constructor
@@ -14,7 +10,7 @@ var client = require('../client');
 var VacancyService = function(index, type){
     this.index = index;
     this.type = type;
-    this.client = client.get();
+    this.client = client.acquire();
 
     if(!this.client){
         throw new Error('Client does not exist. Call "connect" to create client.');
@@ -33,7 +29,7 @@ VacancyService.prototype.search = function(options, next){
     options.from = options.from || 0;
 
     // create search instance, initialize with options
-    search = new searches.live({
+    search = new searches.vacancies.live({
         id          : options.id,
         workPatterns: options.pattern,
         orgs        : options.org,

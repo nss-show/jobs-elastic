@@ -2,11 +2,8 @@
  *	Service for organisations
  */
 
-var searches = {
-  base: require('../searches/organisations/base')    
-};
-
 var client = require('../client');
+var searches = require('../searches');
 
 /*
   Organisations returned by this service may not have live vacancies.  
@@ -25,7 +22,7 @@ var contactFields = [
 var OrganisationService = function(index, type){
   this.index = index;
   this.type = type;    
-  this.client = client.get();
+  this.client = client.acquire();
 
   if(!this.client){
       throw new Error('Client does not exist. Call "connect" to create client.');
@@ -62,7 +59,7 @@ OrganisationService.prototype.search = function(options, next){
   options.from = options.from || 0;
 
   // create search instance, initialize with options
-  search = new searches.base({
+  search = new searches.organisations.base({
       id          : options.id,
       orgTypes    : options.orgtype,
       terms       : options.term
