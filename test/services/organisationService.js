@@ -5,10 +5,10 @@
 
 var assert = require('assert');
 var sinon = require('sinon');
-var service = require('../../services/organisationService');
-var searches = require('../../searches');
+var service = require('../../lib/services/organisationService');
+var searches = require('../../lib/searches');
 var elasticsearch = require('elasticsearch');
-var clientProxy = require('../../client');
+var clientProxy = require('../../lib/client');
 
 /**
  *==================================================================

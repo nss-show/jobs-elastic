@@ -5,8 +5,8 @@
 
 var assert = require('assert');
 var sinon = require('sinon');
-var base = require('../../searches/vacancies/base');
-var live = require('../../searches/vacancies/live');
+var base = require('../../lib/searches/vacancies/base');
+var live = require('../../lib/searches/vacancies/live');
 
 /**
  *==================================================================
