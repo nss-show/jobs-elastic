@@ -8,13 +8,13 @@ A javascript module used to simplify access to Elasticsearch index (jobs).
 
 ### Require module
 
-'''javascript
+```javascript
 var jobsElastic = require('jobs-elastic');
-'''
+```
 
 ### Connect Client
 
-'''javascript
+```javascript
 var config = {
 	server: {
 		protocol: 'http',
@@ -25,10 +25,10 @@ var config = {
 
 // create the elastic client and connect
 jobsElastic.client.connect(options);
-'''
+```
 
 ### Search for jobs
-'''javascript
+```javascript
 var vacancyService = new jobsElastic.services.vacancies('jobs', 'vacancy');
 
 var options = {
@@ -39,10 +39,10 @@ var options = {
 vacancyService.search(options, function(err, results){
 	// console.log(results);
 });
-'''
+```
 
 ### Get a single job
-'''javascript
+```javascript
 var vacancyService = new jobsElastic.services.vacancies('jobs', 'vacancy');
 var id = 44254;
 
@@ -50,10 +50,10 @@ vacancyService.getById(id, function(err, result, status){
 	// console.log(status);
 	// console.log(results);
 });
-'''
+```
 
 ### Search for organisations
-'''js
+```js
 var organisationService = new jobsElastic.services.organisations('jobs', 'organisation');
 
 var options = {
@@ -64,10 +64,10 @@ var options = {
 organisationService.search(options, function(err, results){
 	// console.log(results);
 });
-'''
+```
 
 ### Get a single organisation
-'''javascript
+```javascript
 var organisationService = new jobsElastic.services.organisations('jobs', 'organisation');
 var id = 80;
 
@@ -75,4 +75,4 @@ organisationService.getById(id, function(err, result, status){
 	// console.log(status);
 	// console.log(results);
 });
-'''
+```
