@@ -8,13 +8,13 @@ A javascript module used to simplify access to Elasticsearch index (jobs).
 
 ### Require module
 
-'''js
+'''javascript
 var jobsElastic = require('jobs-elastic');
 '''
 
 ### Connect Client
 
-'''js
+'''javascript
 var config = {
 	server: {
 		protocol: 'http',
@@ -28,8 +28,7 @@ jobsElastic.client.connect(options);
 '''
 
 ### Search for jobs
-'''js
-
+'''javascript
 var vacancyService = new jobsElastic.services.vacancies('jobs', 'vacancy');
 
 var options = {
@@ -43,8 +42,7 @@ vacancyService.search(options, function(err, results){
 '''
 
 ### Get a single job
-'''js
-
+'''javascript
 var vacancyService = new jobsElastic.services.vacancies('jobs', 'vacancy');
 var id = 44254;
 
@@ -56,7 +54,6 @@ vacancyService.getById(id, function(err, result, status){
 
 ### Search for organisations
 '''js
-
 var organisationService = new jobsElastic.services.organisations('jobs', 'organisation');
 
 var options = {
@@ -70,8 +67,7 @@ organisationService.search(options, function(err, results){
 '''
 
 ### Get a single organisation
-'''js
-
+'''javascript
 var organisationService = new jobsElastic.services.organisations('jobs', 'organisation');
 var id = 80;
 
